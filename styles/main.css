@@ -88,6 +88,10 @@ a{
 .receiving{
     padding-bottom: 100px;
 }
+.options-menu__item{
+    display: flex;
+    flex-direction: column;
+}
 @media (max-width: 990px){
     .options-menu__list{
         flex-direction: column;
