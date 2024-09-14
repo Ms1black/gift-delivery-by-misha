@@ -1,0 +1,118 @@
+:root{
+    --button-color-blue: #0019FE;
+    --button-color-gray: #4B4B4B;
+    --background-black: #000000;
+    --elements-white: #FFFFFF;
+}
+html{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    background: var(--background-black);
+}
+*,
+::after,
+::before{
+    box-sizing: inherit;
+}
+h1, h4, a{
+    color: var(--elements-white);
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+main, header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section{
+    max-width: 1280px;
+    display: flex;
+    justify-content: center;
+}
+.header__item{
+    font-size: 70px;
+    max-width: 1280px;
+}
+h4{
+    font-size: 20px;
+    font-weight: 300;
+}
+a{
+    text-decoration: none;
+}
+.menu__link, .receiving__link{
+    padding: 20px 30px;
+    width: fit-content;
+    border-radius: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.blue{
+    background: var(--button-color-blue);
+}
+.gray{
+    background: var(--button-color-gray);
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+
+    padding: 300px 0 400px 0;
+}
+.menu__list{
+    display: flex;
+    gap: 30px;
+}
+.options-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 200px;
+}
+.options-menu__item{
+    width: 300px;
+    height: 200px;
+    border: 2px solid var(--elements-white);
+    border-radius: 15px;
+}
+.options-menu__list{
+    display: flex;
+    gap: 30px;
+}
+.receiving{
+    padding-bottom: 100px;
+}
+@media (max-width: 990px){
+    .options-menu__list{
+        flex-direction: column;
+    }
+    .menu{
+        align-items: center;
+    }
+    .header__item{
+        font-size: 64px;
+        text-align: center;
+    }
+}
+@media (max-width: 650px){
+    .menu, .header__item{
+        padding-left: 30px;
+    }
+    .header__item{
+        font-size: 48px;
+        text-align: start;
+    }
+    .menu{
+        padding-top: 100px;
+    }
+    .menu, .menu__list{
+        align-items: flex-start;
+    }
+    .menu__list{
+        flex-direction: column;
+    }
+
+}
