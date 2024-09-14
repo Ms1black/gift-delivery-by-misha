@@ -124,5 +124,8 @@ a{
     .options-menu{
         padding-bottom: 50px;
     }
-
+    .options-menu__item{
+        display: flex;
+        flex-direction: column;
+    }
 }
