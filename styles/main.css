@@ -73,6 +73,9 @@ a{
     padding-bottom: 200px;
 }
 .options-menu__item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 300px;
     height: 200px;
     border: 2px solid var(--elements-white);
@@ -80,7 +83,7 @@ a{
 }
 .options-menu__list{
     display: flex;
-    gap: 30px;
+    gap: 40px;
 }
 .receiving{
     padding-bottom: 100px;
@@ -113,6 +116,9 @@ a{
     }
     .menu__list{
         flex-direction: column;
+    }
+    .options-menu{
+        padding-bottom: 50px;
     }
 
 }
