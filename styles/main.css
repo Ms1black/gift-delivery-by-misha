@@ -61,6 +61,7 @@ a{
 }
 .menu__link_popup-error{
     display: flex;
+    gap: 10px;
 }
 .menu__link_popup-error h4{
     margin: 0;
