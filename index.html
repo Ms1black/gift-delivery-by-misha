@@ -35,19 +35,42 @@
     <section class="options-menu">
         <div class="options-menu__title" id="ready!"><h4>Помоги Мише Токсису:</h4></div>
         <div class="options-menu__list">
-            <div class="options-menu__item"><h4 class="options-menu__trial">Пройти капчу</h4><div class="receiving__link gray" ><a >Помочь</a></div></div>
+            <div class="options-menu__item"><h4 class="options-menu__trial">Пройти капчу</h4><div class="receiving__link gray"><a >Помочь</a></div></div>
             <div class="options-menu__item"><h4 class="options-menu__trial">Выбрать поздравление</h4><div class="receiving__link gray"><a>Помочь</a></div></div>
-            <div class="options-menu__item"><h4 class="options-menu__trial">Выбрать открытку</h4>
-                <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDN6OWIxM2NsZDNzcjNsOHJtOG1obWJvOGVnbDMzanVpcGZpamh1cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tmYeRTPuEp9nPY7N3s/giphy.gif" width="250px">
-                <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2piaGkxdmhodW9qYW1zdG9zOXY1ZndwbGEycW0xZmc1dHp6OTBzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Cn2ms2sAeMX9DdoM73/giphy.gif" width="250px">
-                <div class="receiving__link gray" ><a>Помочь</a>
-                
-                </div></div>
-            <div class="options-menu__item"><h4 class="options-menu__trial">Запаковать подарок</h4><div class="receiving__link gray" ><a>Помочь</a></div></div>
+            <div class="options-menu__item">
+                <h4 class="options-menu__trial">Выбрать открытку</h4>
+                <div id="gif-container">
+                    <div class="gif-item">
+                        <label for="gif1">
+                            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDN6OWIxM2NsZDNzcjNsOHJtOG1obWJvOGVnbDMzanVpcGZpamh1cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tmYeRTPuEp9nPY7N3s/giphy.gif" alt="s_dr_kollega" width="250px">
+                        </label>
+                        <input type="radio" name="gif" value="Коллега)" id="gif1">
+                    </div>
+                    <div class="gif-item">
+                        <label for="gif2">
+                            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2piaGkxdmhodW9qYW1zdG9zOXY1ZndwbGEycW0xZmc1dHp6OTBzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Cn2ms2sAeMX9DdoM73/giphy.gif" alt="s_dr_krasavica" width="250px">
+                        </label>
+                        <input type="radio" name="gif" value="Красавица!" id="gif2">
+                    </div>
+                    <div class="gif-item">
+                        <label for="gif3">
+                            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExamdhcG9zYnE4bG9seGlxcDJla25iYWsxc21yYXU2dHIzbHlrNTEwMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qIwzM0Hu1NBRj0uoTD/giphy.gif" alt="bratuha_s_dr" width="250px">
+                        </label>
+                        <input type="radio" name="gif" value="Братуха!" id="gif3">
+                    </div>
+                </div>
+
+                <!-- Заменяем кнопку на div с классом receiving__link -->
+                <div class="receiving__link gray" id="saveSelection">
+                    <a href="#take-this">Помочь</a>
+                </div>
+
+
+            </div>
         </div>
     </section>
     <section class="receiving">
-        <div class="receiving__link blue" ><a href="" >Забрать награду</a></div>
+        <div class="receiving__link blue" ><a id="take-this" href="" >Забрать награду</a></div>
     </section>
 </main>
 </body>
@@ -63,5 +86,39 @@ triggerPopup.addEventListener('click', () => {
 closePopup.addEventListener('click', () => {
     popup.classList.add('hidden');
 });
+
+
+    let lastChecked = null;
+    const gifContainer = document.getElementById('gif-container');
+    const saveButton = document.getElementById('saveSelection');
+
+    saveButton.addEventListener('click', function() {
+
+        if (saveButton.classList.contains('gray')) {
+            gifContainer.style.display = 'block';
+        } else {
+            gifContainer.style.display = 'none';
+        }
+
+        let selectedGif = document.querySelector('input[name="gif"]:checked');
+
+        if (selectedGif) {
+            saveButton.classList.remove('gray');
+            saveButton.classList.add('blue');
+            gifContainer.style.display = 'none';
+            alert('Новое достижение: ' + selectedGif.value);
+        }
+    });
+
+    document.querySelectorAll('input[name="gif"]').forEach(function(radio) {
+        radio.addEventListener('click', function(event) {
+            if (this === lastChecked) {
+                this.checked = false;
+                lastChecked = null;
+            } else {
+                lastChecked = this;
+            }
+        });
+    });
 </script>
 </html>
