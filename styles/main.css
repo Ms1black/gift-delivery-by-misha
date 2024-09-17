@@ -118,7 +118,9 @@ a{
     align-items: center;
     justify-content: center;
     width: 300px;
-    height: 200px;
+    height: min-content;
+    padding-bottom: 40px;
+    padding-top: 20px;
     border: 2px solid var(--elements-white);
     border-radius: 15px;
 }
@@ -168,6 +170,7 @@ a{
     .options-menu__item{
         display: flex;
         flex-direction: column;
+
     }
 }
 
@@ -181,9 +184,10 @@ a{
     align-items: center;
     margin-bottom: 10px;
 }
-img {
-    margin-right: 10px;
-}
 #gif-container {
     display: none;
+}
+.gif-item input[type="radio"] {
+    transform: scale(1.5);
+    margin: 20px 0 20px 0;
 }

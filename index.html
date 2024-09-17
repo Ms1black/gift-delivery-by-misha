@@ -59,8 +59,6 @@
                         <input type="radio" name="gif" value="Братуха!" id="gif3">
                     </div>
                 </div>
-
-                <!-- Заменяем кнопку на div с классом receiving__link -->
                 <div class="receiving__link gray" id="saveSelection">
                     <a href="#take-this">Помочь</a>
                 </div>
@@ -96,6 +94,7 @@ closePopup.addEventListener('click', () => {
 
         if (saveButton.classList.contains('gray')) {
             gifContainer.style.display = 'block';
+
         } else {
             gifContainer.style.display = 'none';
         }
@@ -120,5 +119,6 @@ closePopup.addEventListener('click', () => {
             }
         });
     });
+
 </script>
 </html>
