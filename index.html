@@ -35,8 +35,27 @@
     <section class="options-menu">
         <div class="options-menu__title" id="ready!"><h4>Помоги Мише Токсису:</h4></div>
         <div class="options-menu__list">
-            <div class="options-menu__item"><h4 class="options-menu__trial">Пройти капчу</h4><div class="receiving__link gray"><a >Помочь</a></div></div>
-            <div class="options-menu__item"><h4 class="options-menu__trial">Выбрать поздравление</h4><div class="receiving__link gray"><a>Помочь</a></div></div>
+
+            <div class="options-menu__item">
+                <h4 class="options-menu__trial hidden" id="captcha-task__title">Пройти капчу</h4>
+                <div class="captcha-container hidden">
+                    <img class="captcha__img" id="id-captcha__img" src="src/img/captcha.png" alt="captcha" width="200px">
+                    <input type="text" id="captchaInput" placeholder="Выдай базу">
+                    <a id="captchaSubmit" class="receiving__link gray">Отправить</a>
+                </div>
+                <a id="helpButton" class="receiving__link gray">Помочь</a>
+                <a id="doneButton" class="receiving__link blue hidden">Готово!</a>
+            </div>
+
+
+
+
+            <div class="options-menu__item"><h4 class="options-menu__trial">Выбрать поздравление</h4>
+                <div class="receiving__link gray"><a>Помочь</a></div></div>
+
+
+
+
             <div class="options-menu__item">
                 <h4 class="options-menu__trial">Выбрать открытку</h4>
                 <div id="gif-container">
@@ -60,65 +79,63 @@
                     </div>
                 </div>
                 <div class="receiving__link gray" id="saveSelection">
-                    <a href="#take-this">Помочь</a>
+                    <a class="receiving__link--inner" >Помочь</a>
+                    <a class = "receiving__link--inner hidden2" >Готово!</a>
                 </div>
 
 
             </div>
         </div>
     </section>
-    <section class="receiving" id="take-this">
+    <section class="receiving" id="saveBtn">
         <div class="receiving__link blue" ><a href="">Забрать награду</a></div>
     </section>
 </main>
+
 </body>
-<script>
-    const popup = document.getElementById('menu__link_popup');
-    const triggerPopup = document.getElementById('menu__link_trigger');
-    const closePopup = document.getElementById('menu__link_popup-close');
-
-triggerPopup.addEventListener('click', () => {
-    popup.classList.remove('hidden');
-});
-
-closePopup.addEventListener('click', () => {
-    popup.classList.add('hidden');
-});
 
 
-    let lastChecked = null;
-    const gifContainer = document.getElementById('gif-container');
-    const saveButton = document.getElementById('saveSelection');
+<script src="js/email.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+<script src="js/first-task.js"></script>
+<script src="js/email-Js.js"></script>
+<script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.getElementById('menu__link_popup');
+        const triggerPopup = document.getElementById('menu__link_trigger');
+        const closePopup = document.getElementById('menu__link_popup-close');
 
-    saveButton.addEventListener('click', function() {
+        triggerPopup.addEventListener('click', () => {
+            popup.classList.remove('hidden2');
+        });
 
-        if (saveButton.classList.contains('gray')) {
-            gifContainer.style.display = 'block';
+        closePopup.addEventListener('click', () => {
+            popup.classList.add('hidden2');
+        });
 
-        } else {
-            gifContainer.style.display = 'none';
-        }
+        const gifContainer = document.getElementById('gif-container');
+        const saveButton = document.getElementById('saveSelection');
+        const buttonTexts = saveButton.querySelectorAll('.receiving__link--inner');
+        buttonTexts[0].classList.remove('hidden');
+        buttonTexts[1].classList.add('hidden');
 
-        let selectedGif = document.querySelector('input[name="gif"]:checked');
-
-        if (selectedGif) {
-            saveButton.classList.remove('gray');
-            saveButton.classList.add('blue');
-            gifContainer.style.display = 'none';
-            alert('Новое достижение: ' + selectedGif.value);
-        }
-    });
-
-    document.querySelectorAll('input[name="gif"]').forEach(function(radio) {
-        radio.addEventListener('click', function(event) {
-            if (this === lastChecked) {
-                this.checked = false;
-                lastChecked = null;
+        saveButton.addEventListener('click', function() {
+            if (saveButton.classList.contains('gray')) {
+                gifContainer.style.display = 'block';
             } else {
-                lastChecked = this;
+                gifContainer.style.display = 'none';
+            }
+
+            let selectedGif = document.querySelector('input[name="gif"]:checked');
+            if (selectedGif) {
+                saveButton.classList.remove('gray');
+                saveButton.classList.add('blue');
+                gifContainer.style.display = 'none';
+                buttonTexts[0].classList.add('hidden');
+                buttonTexts[1].classList.remove('hidden');
             }
         });
     });
-
 </script>
+
 </html>
