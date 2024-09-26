@@ -100,8 +100,7 @@ a{
     flex-direction: column;
     gap: 30px;
     width: 100%;
-
-    padding: 300px 0 400px 0;
+    padding: 50px 0 400px 0;
 }
 .menu__list{
     display: flex;
@@ -156,7 +155,7 @@ a{
         text-align: start;
     }
     .menu{
-        padding-top: 100px;
+        padding-top: 0px;
     }
     .menu, .menu__list{
         align-items: flex-start;
@@ -210,4 +209,7 @@ a{
 }
 #captchaSubmit{
    margin-left: 74px;
+}
+.hidden3{
+    display: none;
 }

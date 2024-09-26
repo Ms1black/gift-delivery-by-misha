@@ -8,18 +8,77 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
-
-
+    <style>
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-slide {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-slide img {
+            display: block;
+            width: 250px;
+            height: auto;
+            object-fit: contain;
+        }
+        @media (max-width: 650px){
+            .swiper-slide img{
+                width: 150px;
+            }
+        }
+        .swiper-wrapper {
+            display: flex;
+        }
+        .swiper-slide {
+            flex-shrink: 0;
+            width: 100%;
+        }
+        .autoplay-progress svg {
+            --progress: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            stroke-width: 4px;
+            fill: none;
+            stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+            stroke-dasharray: 125.6;
+            transform: rotate(-90deg);
+        }
+    </style>
+</head>
 <body>
 <header class="header">
     <h1 class="header__item">ДОСТАВЩИК ПОДАРКОВ ОТ МИШИ ТОКСИСА</h1>
 </header>
 <main class="main">
     <section class="menu">
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="src/img/pngegg.png" alt="Image 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="src/img/pngegg(1).png" alt="Image 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="src/img/pngegg(2).png" alt="Image 3">
+                </div>
+            </div>
+        </div>
+
         <div class="menu__item"><h4>- Боец, ты готов получить свой подарок через мою доставку?</h4></div>
         <div class="menu__list">
+
             <a class="menu__link gray" id="menu__link_trigger">У меня есть еще варианты?</a>
-            <div id="menu__link_popup" class="menu__link_popup hidden">
+            <div id="menu__link_popup" class="menu__link_popup hidden3">
                 <div class="menu__link_popup-content">
                     <div class="menu__link_popup-error">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 48 48">
@@ -97,7 +156,9 @@
 
 <script src="js/email.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js/first-task.js"></script>
+<script src="js/third-task.js"></script>
 <script src="js/email-Js.js"></script>
 <script defer>
     document.addEventListener('DOMContentLoaded', function() {
@@ -106,36 +167,34 @@
         const closePopup = document.getElementById('menu__link_popup-close');
 
         triggerPopup.addEventListener('click', () => {
-            popup.classList.remove('hidden2');
+            popup.classList.remove('hidden3');
         });
 
         closePopup.addEventListener('click', () => {
-            popup.classList.add('hidden2');
-        });
-
-        const gifContainer = document.getElementById('gif-container');
-        const saveButton = document.getElementById('saveSelection');
-        const buttonTexts = saveButton.querySelectorAll('.receiving__link--inner');
-        buttonTexts[0].classList.remove('hidden');
-        buttonTexts[1].classList.add('hidden');
-
-        saveButton.addEventListener('click', function() {
-            if (saveButton.classList.contains('gray')) {
-                gifContainer.style.display = 'block';
-            } else {
-                gifContainer.style.display = 'none';
-            }
-
-            let selectedGif = document.querySelector('input[name="gif"]:checked');
-            if (selectedGif) {
-                saveButton.classList.remove('gray');
-                saveButton.classList.add('blue');
-                gifContainer.style.display = 'none';
-                buttonTexts[0].classList.add('hidden');
-                buttonTexts[1].classList.remove('hidden');
-            }
+            popup.classList.add('hidden3');
         });
     });
-</script>
 
+    var swiper = new Swiper(".mySwiper", {
+        direction: 'horizontal',
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+<script>
+
+</script>
 </html>

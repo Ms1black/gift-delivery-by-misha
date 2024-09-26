@@ -24,7 +24,7 @@ captchaSubmit.addEventListener('click', function() {
         doneButton.classList.remove('hidden');
         captchaTitle.classList.remove('hidden');
         captchaImg.classList.add('hidden')
-        alert('Новое достижение: !');
+        alert('Новое достижение: ГООООООЛ!');
     } else {
         alert('Херня, давай по новой!');
     }
