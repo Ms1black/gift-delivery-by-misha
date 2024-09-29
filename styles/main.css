@@ -154,9 +154,6 @@ a{
         font-size: 48px;
         text-align: start;
     }
-    .menu{
-        padding-top: 0px;
-    }
     .menu, .menu__list{
         align-items: flex-start;
     }
@@ -177,7 +174,7 @@ a{
     display: none;
     margin-top: 20px;
 }
-.gif-item {
+.gif-item, .congrats-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -201,8 +198,21 @@ a{
     box-sizing: border-box;
     margin: 0 0 50px 35px;
 }
+#customCongratsInput{
+    border: 2px solid #000;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    width: auto ;
+    box-sizing: border-box;
+}
 .captcha__img{
     margin: 0 0 20px 44px;
+}
+.congrats-item img{
+    margin-bottom: 20px;
 }
 #captchaInput::placeholder {
     color: #888;
@@ -212,4 +222,16 @@ a{
 }
 .hidden3{
     display: none;
+}
+.hidden4 {
+    display: none;
+}
+
+.congrats-item:nth-child(3) {
+    margin: 40px 0 40px 0;
+}
+.video-inner{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
 }

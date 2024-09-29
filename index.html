@@ -8,50 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
-    <style>
-        .swiper {
-            width: 100%;
-            height: 100%;
-        }
-        .swiper-slide {
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .swiper-slide img {
-            display: block;
-            width: 250px;
-            height: auto;
-            object-fit: contain;
-        }
-        @media (max-width: 650px){
-            .swiper-slide img{
-                width: 150px;
-            }
-        }
-        .swiper-wrapper {
-            display: flex;
-        }
-        .swiper-slide {
-            flex-shrink: 0;
-            width: 100%;
-        }
-        .autoplay-progress svg {
-            --progress: 0;
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 10;
-            width: 100%;
-            height: 100%;
-            stroke-width: 4px;
-            fill: none;
-            stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
-            stroke-dasharray: 125.6;
-            transform: rotate(-90deg);
-        }
-    </style>
 </head>
 <body>
 <header class="header">
@@ -59,22 +15,7 @@
 </header>
 <main class="main">
     <section class="menu">
-
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="src/img/pngegg.png" alt="Image 1">
-                </div>
-                <div class="swiper-slide">
-                    <img src="src/img/pngegg(1).png" alt="Image 2">
-                </div>
-                <div class="swiper-slide">
-                    <img src="src/img/pngegg(2).png" alt="Image 3">
-                </div>
-            </div>
-        </div>
-
-        <div class="menu__item"><h4>- Боец, ты готов получить свой подарок через мою доставку?</h4></div>
+        <div class="menu__item"><h4>- Готов получить свой подарок через мою доставку?</h4></div>
         <div class="menu__list">
 
             <a class="menu__link gray" id="menu__link_trigger">У меня есть еще варианты?</a>
@@ -94,12 +35,11 @@
     <section class="options-menu">
         <div class="options-menu__title" id="ready!"><h4>Помоги Мише Токсису:</h4></div>
         <div class="options-menu__list">
-
             <div class="options-menu__item">
                 <h4 class="options-menu__trial hidden" id="captcha-task__title">Пройти капчу</h4>
                 <div class="captcha-container hidden">
                     <img class="captcha__img" id="id-captcha__img" src="src/img/captcha.png" alt="captcha" width="200px">
-                    <input type="text" id="captchaInput" placeholder="Выдай базу">
+                    <input type="text" id="captchaInput" placeholder="Помогай давай">
                     <a id="captchaSubmit" class="receiving__link gray">Отправить</a>
                 </div>
                 <a id="helpButton" class="receiving__link gray">Помочь</a>
@@ -109,8 +49,34 @@
 
 
 
-            <div class="options-menu__item"><h4 class="options-menu__trial">Выбрать поздравление</h4>
-                <div class="receiving__link gray"><a>Помочь</a></div></div>
+            <div class="options-menu__item">
+                <h4 class="options-menu__trial">Выбрать поздравление</h4>
+                <div id="congrats-container">
+                    <div class="congrats-item">
+                        <label for="congrats1">
+                            <img src="src/img/never-give-up.jpg" alt="не сдавайся" width="250px">
+                        </label>
+                        <input type="radio" name="congrats" value="Никогда не сдавайся" id="congrats1">
+                    </div>
+                    <div class="congrats-item">
+                        <label for="congrats2">
+                            <img src="src/img/for-cuty.jpg" alt="cuty" width="250px">
+                        </label>
+                        <input type="radio" name="congrats" value="Для милой и очаровательной" id="congrats2">
+                    </div>
+                    <div class="congrats-item">
+                        <label for="congrats3"><span id="customCongratsLabel" style="color:white;font-family: Inter ">Свой вариант:</span>
+                            <input type="radio" name="congrats" value="custom" id="congrats3">
+
+                            <input type="text" id="customCongratsInput" placeholder="Введи поздравление" class="hidden2">
+                        </label>
+                    </div>
+                </div>
+                <div class="receiving__link gray" id="saveCongrats">
+                    <a class="receiving__link--inner">Помочь</a>
+                    <a class="receiving__link--inner hidden4">Готово!</a>
+                </div>
+            </div>
 
 
 
@@ -141,16 +107,13 @@
                     <a class="receiving__link--inner" >Помочь</a>
                     <a class = "receiving__link--inner hidden2" >Готово!</a>
                 </div>
-
-
             </div>
         </div>
     </section>
     <section class="receiving" id="saveBtn">
-        <div class="receiving__link blue" ><a href="">Забрать награду</a></div>
+        <div id="getGiftButton" class="receiving__link blue" ><a >Забрать подарок</a></div>
     </section>
 </main>
-
 </body>
 
 
@@ -158,6 +121,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js/first-task.js"></script>
+<script src="js/second-task.js"></script>
 <script src="js/third-task.js"></script>
 <script src="js/email-Js.js"></script>
 <script defer>
@@ -175,24 +139,6 @@
         });
     });
 
-    var swiper = new Swiper(".mySwiper", {
-        direction: 'horizontal',
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
 </script>
 <script>
 

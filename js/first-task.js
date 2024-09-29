@@ -24,8 +24,18 @@ captchaSubmit.addEventListener('click', function() {
         doneButton.classList.remove('hidden');
         captchaTitle.classList.remove('hidden');
         captchaImg.classList.add('hidden')
-        alert('Новое достижение: ГООООООЛ!');
+        alert('Новое достижение: дешифратор');
     } else {
         alert('Херня, давай по новой!');
+    }
+});
+document.querySelector('#getGiftButton').addEventListener('click', function() {
+    const saveCongrats = document.getElementById('saveCongrats');
+    const saveButton = document.getElementById('saveSelection');
+    const doneButton = document.getElementById('doneButton');
+    if (saveCongrats.classList.contains('blue') && saveButton.classList.contains('blue') && !saveCongrats.classList.contains('hidden')) {
+        window.location.href = 'Инструктаж.html';
+    } else {
+        alert('Сначала помоги Мишане');
     }
 });
