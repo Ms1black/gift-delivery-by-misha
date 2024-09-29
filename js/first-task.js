@@ -34,7 +34,7 @@ document.querySelector('#getGiftButton').addEventListener('click', function() {
     const saveButton = document.getElementById('saveSelection');
     const doneButton = document.getElementById('doneButton');
     if (saveCongrats.classList.contains('blue') && saveButton.classList.contains('blue') && !doneButton.classList.contains('hidden')) {
-        window.location.href = 'Инструктаж.html';
+        alert('Отсканируй QR-код, который лежит внутри кнопки');
     } else {
         alert('Сначала помоги Мишане');
     }
