@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misha delivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<header class="header">
+    <h1 class="header__item">ДОСТАВЩИК ПОДАРКОВ ОТ МИШИ ТОКСИСА</h1>
+</header>
+<main class="main">
+    <section class="menu">
+        <div class="menu__item"><h4>- Готов получить свой подарок через мою доставку?</h4></div>
+        <div class="menu__list">
+
+            <a class="menu__link gray" id="menu__link_trigger">У меня есть еще варианты?</a>
+            <div id="menu__link_popup" class="menu__link_popup hidden3">
+                <div class="menu__link_popup-content">
+                    <div class="menu__link_popup-error">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 48 48">
+                        <path fill="#f44336" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#fff" d="M29.656,15.516l2.828,2.828l-14.14,14.14l-2.828-2.828L29.656,15.516z"></path><path fill="#fff" d="M32.484,29.656l-2.828,2.828l-14.14-14.14l2.828-2.828L32.484,29.656z"></path>
+                    </svg><h4>Ошибка!</h4></div>
+                    <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnM3YXh0b2RrN3BoYzZta2xmbXRmMmFxNjd5c2VpZzhmZWd2NHE3ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dg/tdDByjqJsARvQvCPqq/giphy.gif" width="300px" alt="bibizyana">
+                    <div id="menu__link_popup-close"><a>Понял</a></div>
+                </div>
+            </div>
+            <a class="menu__link blue" href="#ready!">Всегда готов!</a>
+        </div>
+    </section>
+    <section class="options-menu">
+        <div class="options-menu__title" id="ready!"><h4>Помоги Мише Токсису:</h4></div>
+        <div class="options-menu__list">
+            <div class="options-menu__item">
+                <h4 class="options-menu__trial hidden" id="captcha-task__title">Пройти капчу</h4>
+                <div class="captcha-container hidden">
+                    <img class="captcha__img" id="id-captcha__img" src="src/img/captcha.png" alt="captcha" width="200px">
+                    <input type="text" id="captchaInput" placeholder="Помогай давай">
+                    <a id="captchaSubmit" class="receiving__link gray">Отправить</a>
+                </div>
+                <a id="helpButton" class="receiving__link gray">Помочь</a>
+                <a id="doneButton" class="receiving__link blue hidden">Готово!</a>
+            </div>
+
+
+
+
+            <div class="options-menu__item">
+                <h4 class="options-menu__trial">Выбрать поздравление</h4>
+                <div id="congrats-container">
+                    <div class="congrats-item">
+                        <label for="congrats1">
+                            <img src="src/img/never-give-up.jpg" alt="не сдавайся" width="250px">
+                        </label>
+                        <input type="radio" name="congrats" value="Никогда не сдавайся" id="congrats1">
+                    </div>
+                    <div class="congrats-item">
+                        <label for="congrats2">
+                            <img src="src/img/for-cuty.jpg" alt="cuty" width="250px">
+                        </label>
+                        <input type="radio" name="congrats" value="Для милой и очаровательной" id="congrats2">
+                    </div>
+                    <div class="congrats-item">
+                        <label for="congrats3"><span id="customCongratsLabel" style="color:white;font-family: Inter ">Свой вариант:</span>
+                            <input type="radio" name="congrats" value="custom" id="congrats3">
+
+                            <input type="text" id="customCongratsInput" placeholder="Введи поздравление" class="hidden2">
+                        </label>
+                    </div>
+                </div>
+                <div class="receiving__link gray" id="saveCongrats">
+                    <a class="receiving__link--inner">Помочь</a>
+                    <a class="receiving__link--inner hidden4">Готово!</a>
+                </div>
+            </div>
+
+
+
+
+            <div class="options-menu__item">
+                <h4 class="options-menu__trial">Выбрать открытку</h4>
+                <div id="gif-container">
+                    <div class="gif-item">
+                        <label for="gif1">
+                            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDN6OWIxM2NsZDNzcjNsOHJtOG1obWJvOGVnbDMzanVpcGZpamh1cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tmYeRTPuEp9nPY7N3s/giphy.gif" alt="s_dr_kollega" width="250px">
+                        </label>
+                        <input type="radio" name="gif" value="Коллега)" id="gif1">
+                    </div>
+                    <div class="gif-item">
+                        <label for="gif2">
+                            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2piaGkxdmhodW9qYW1zdG9zOXY1ZndwbGEycW0xZmc1dHp6OTBzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Cn2ms2sAeMX9DdoM73/giphy.gif" alt="s_dr_krasavica" width="250px">
+                        </label>
+                        <input type="radio" name="gif" value="Красавица!" id="gif2">
+                    </div>
+                    <div class="gif-item">
+                        <label for="gif3">
+                            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExamdhcG9zYnE4bG9seGlxcDJla25iYWsxc21yYXU2dHIzbHlrNTEwMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qIwzM0Hu1NBRj0uoTD/giphy.gif" alt="bratuha_s_dr" width="250px">
+                        </label>
+                        <input type="radio" name="gif" value="Братуха!" id="gif3">
+                    </div>
+                </div>
+                <div class="receiving__link gray" id="saveSelection">
+                    <a class="receiving__link--inner" >Помочь</a>
+                    <a class = "receiving__link--inner hidden2" >Готово!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="receiving" id="saveBtn">
+        <div id="getGiftButton" class="receiving__link blue" ><a >Забрать подарок</a></div>
+    </section>
+</main>
+</body>
+
+
+<script src="js/email.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/first-task.js"></script>
+<script src="js/second-task.js"></script>
+<script src="js/third-task.js"></script>
+<script src="js/email-Js.js"></script>
+<script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.getElementById('menu__link_popup');
+        const triggerPopup = document.getElementById('menu__link_trigger');
+        const closePopup = document.getElementById('menu__link_popup-close');
+
+        triggerPopup.addEventListener('click', () => {
+            popup.classList.remove('hidden3');
+        });
+
+        closePopup.addEventListener('click', () => {
+            popup.classList.add('hidden3');
+        });
+    });
+</script>
+<script>
+</script>
+</html>
